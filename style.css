@@ -1,0 +1,330 @@
+/* =========================
+   AGRINHO - DESIGN SYSTEM
+   Azul + Verde (moderno)
+========================= */
+
+:root {
+  --green-900: #0f2e1d;
+  --green-700: #1f6b3a;
+  --green-500: #2fa866;
+
+  --blue-900: #0d2a4a;
+  --blue-700: #1e5aa8;
+  --blue-500: #2f80ed;
+
+  --bg: #f4f8fb;
+  --card: #ffffff;
+  --text: #1c1f24;
+  --muted: #5b6675;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  --font: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, var(--blue-900), var(--green-700));
+  box-shadow: var(--shadow);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.logo::before {
+  content: "🌱";
+}
+
+/* NAV MOBILE FIRST */
+nav {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: var(--blue-900);
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+nav.active {
+  display: flex;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: .8rem;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+}
+
+/* desktop nav */
+@media (min-width: 768px) {
+  nav {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 1rem;
+    background: transparent;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* =========================
+   BANNER
+========================= */
+.banner {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--blue-900),
+    var(--green-700)
+  );
+  padding: 2rem;
+}
+
+.banner-content h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.banner-content p {
+  opacity: .9;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.cta-button {
+  margin-top: 1.5rem;
+  background: var(--green-500);
+  color: white;
+  border: none;
+  padding: .9rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .3s;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  background: var(--blue-500);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 1.5rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--blue-900);
+}
+
+h3 {
+  color: var(--green-700);
+}
+
+/* =========================
+   CARDS MODERNOS
+========================= */
+.cards-container,
+.producao-grid,
+.desafios-container,
+.ferramentas {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cards-container {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: linear-gradient(135deg, var(--green-700), var(--blue-700));
+  color: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* info boxes */
+.info-box,
+.desafio-item,
+.ferramenta-box,
+.form-container {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   STATS
+========================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-500);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--blue-700);
+}
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: .8rem;
+  border-radius: 10px;
+  border: 1px solid #d7dee8;
+  margin-top: .4rem;
+  font-family: var(--font);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--green-500);
+}
+
+/* =========================
+   QUIZ / CALCULADORA
+========================= */
+.quiz-container,
+.calculadora-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fbff;
+  border-radius: var(--radius);
+  display: none;
+}
+
+.quiz-container.active,
+.calculadora-container.active {
+  display: block;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: var(--blue-900);
+  color: white;
+  padding: 3rem 1.5rem;
+}
+
+.footer-content {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  opacity: .7;
+}
+
+/* =========================
+   RESPONSIVO EXTRA
+========================= */
+@media (max-width: 600px) {
+  section {
+    padding: 2.5rem 1rem;
+  }
+
+  .banner {
+    min-height: 70vh;
+  }
+}
